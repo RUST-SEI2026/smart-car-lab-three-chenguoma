@@ -1,29 +1,20 @@
 use crate::action::Action;
 use crate::assembler::Assembler;
 
+
 #[derive(Default, Copy, Clone)]
-pub(crate) struct State {
+pub(crate) struct SportsCarState {
     is_reverse: bool,
     is_fast: bool,
 }
 
-impl State {
-    
-    pub(crate) fn assembler(&self, cmd: char) -> Vec<Action> {
-        match cmd {
-            'M' => self.move_assemble(),
-            'L' => self.turn_left_assemble(),
-            'R' => self.turn_right_assemble(),
-            _ => Vec::new(),
-        }
-    }
-}
-
-impl Assembler for State{
+impl Assembler for SportsCarState{
     fn move_assemble(&self) -> Vec<Action> {
         let mut actions = Vec::new();
         actions.push(Action::Forward(if self.is_reverse { -1 } else { 1 }));
+        actions.push(Action::Forward(if self.is_reverse { -1 } else { 1 }));
         if self.is_fast {
+            actions.push(Action::Forward(if self.is_reverse { -1 } else { 1 }));
             actions.push(Action::Forward(if self.is_reverse { -1 } else { 1 }));
         }
         actions
@@ -39,6 +30,9 @@ impl Assembler for State{
         } else {
             Action::TurnLeft
         });
+
+        actions.push(Action::Forward(if self.is_reverse { -1 } else { 1 }));
+        
         actions
     }
 
@@ -52,6 +46,9 @@ impl Assembler for State{
         } else {
             Action::TurnRight
         });
+
+        actions.push(Action::Forward(if self.is_reverse { -1 } else { 1 }));
+
         actions
     }
 
