@@ -1,10 +1,8 @@
 use crate::Pose;
 use crate::executor::Executor;
-use super::sport_car_state::SportsCarState;
+use crate::sport_car_state::SportsCarState;
 
-pub struct SportsCarExecutor{
-    pose: Pose,
-}
+pub struct SportsCarExecutor;
 
 impl SportsCarExecutor{
     pub fn with_pose(pose:Pose) -> Executor{
@@ -29,7 +27,7 @@ impl SportsCarExecutor{
 //         }
 //     }
 
-    pub fn query(&self) -> Pose{
-        self.pose
-    }
+    // pub fn query(&self) -> Pose{
+    //     self.pose
+    // }
 }

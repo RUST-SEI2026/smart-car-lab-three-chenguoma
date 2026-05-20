@@ -7,17 +7,17 @@ pub(crate) struct State {
     is_fast: bool,
 }
 
-impl State {
+// impl State {
     
-    pub(crate) fn assembler(&self, cmd: char) -> Vec<Action> {
-        match cmd {
-            'M' => self.move_assemble(),
-            'L' => self.turn_left_assemble(),
-            'R' => self.turn_right_assemble(),
-            _ => Vec::new(),
-        }
-    }
-}
+//     pub(crate) fn assembler(&self, cmd: char) -> Vec<Action> {
+//         match cmd {
+//             'M' => self.move_assemble(),
+//             'L' => self.turn_left_assemble(),
+//             'R' => self.turn_right_assemble(),
+//             _ => Vec::new(),
+//         }
+//     }
+// }
 
 impl Assembler for State{
     fn move_assemble(&self) -> Vec<Action> {

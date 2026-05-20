@@ -3,8 +3,8 @@ use crate::Pose;
 use crate::assembler::Assembler;
 
 pub struct Executor {
-    pose: Pose,
-    state: Box<dyn Assembler>,
+   pub(crate)  pose: Pose,
+   pub(crate) state: Box<dyn Assembler>,
 }
 
 impl Executor {
